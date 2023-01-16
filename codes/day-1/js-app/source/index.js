@@ -1,3 +1,20 @@
+function displayTable(contact) {
+    var tdName = document.createElement('td')
+    tdName.innerText = contact.name
+
+    var tdEmail = document.createElement('td')
+    tdEmail.innerText = contact.emailId
+
+    var tdMobile = document.createElement('td')
+    tdMobile.innerText = contact.mobileNumber.toString()
+
+    var newRow = document.createElement('tr')
+    //newRow.className = 'table-dark'
+    newRow.classList.add('table-dark')
+    newRow.append(tdName, tdEmail, tdMobile)
+
+    document.getElementById('tbody').appendChild(newRow)
+}
 function createContact() {
 
     var txtNameObj = document.getElementById('txtName')
@@ -13,8 +30,12 @@ function createContact() {
         mobileNumber: Number(txtMobileObj.value),
         emailId: txtEmailObj.value
     }
+    var divContacts = document.getElementById('divContacts')
 
-    console.log(contactObj)
+    if (divContacts.hidden === true)
+        divContacts.hidden = false
+
+    displayTable(contactObj)
 }
 
 window.addEventListener(
