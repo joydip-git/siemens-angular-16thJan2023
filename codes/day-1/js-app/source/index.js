@@ -20,7 +20,7 @@ function createContact() {
 window.addEventListener(
     'DOMContentLoaded',
     function () {
-        var btnObj = this.document.getElementById('btnAdd')
+        var btnObj = document.getElementById('btnAdd')
         btnObj.addEventListener('click', createContact)
     }
 )
