@@ -1,0 +1,7 @@
+s/w s required:
+1. Node JS (https://nodejs.org/en/)
+2. Visual Studio Code
+3. Angular CLI (@angular/cli)
+
+Guthub Repo:
+https://github.com/joydip-git/siemens-angular-16thJan2023
