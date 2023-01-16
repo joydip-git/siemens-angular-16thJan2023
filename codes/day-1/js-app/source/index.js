@@ -16,3 +16,11 @@ function createContact() {
 
     console.log(contactObj)
 }
+
+window.addEventListener(
+    'DOMContentLoaded',
+    function () {
+        var btnObj = this.document.getElementById('btnAdd')
+        btnObj.addEventListener('click', createContact)
+    }
+)
