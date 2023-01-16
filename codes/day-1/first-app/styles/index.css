@@ -1,0 +1,26 @@
+/* element selector */
+/* h2,
+        p {
+            text-align: center;
+            background-color: lightsalmon;
+        } */
+
+/*id selector*/
+
+#mainHeader,
+#mainPara {
+  text-align: center;
+  background-color: lightsalmon;
+}
+
+#mainPara {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*class selector*/
+
+.myStyle {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: large;
+}

@@ -5,3 +5,21 @@ s/w s required:
 
 Guthub Repo:
 https://github.com/joydip-git/siemens-angular-16thJan2023
+
+
+HTML and CSS
+Language - JavaScript and TypeScript
+Application Building - client-side vs server-side
+Tools - ***
+Technology - Angular and Node JS
+
+
+HTML: inline and block element
+tags - regular tags (with nested element or textual value) and self-closing or empty tag
+
+CSS:
+a. inline styling
+b. outline styling
+
+cascading effect:
+Browser<outline<inline
