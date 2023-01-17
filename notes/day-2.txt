@@ -1,0 +1,24 @@
+module => one file
+
+module formats:
+a. commonjs format => (node js's default module format)
+	 to export: module.exports = {prop1:member1,.....}
+	 to import: const m = require('...')
+
+b. ES6 module format:
+	 to export: export member-name
+	 to import: import {} from '...'
+
+c. UMD (Universal module definition)
+d. AMD (asynchronous module definition)
+
+module loaders:
+requirejs
+systemjs
+
+
+
+define(["require", "exports"],
+function(){
+	const add = a,b=>a+b
+})

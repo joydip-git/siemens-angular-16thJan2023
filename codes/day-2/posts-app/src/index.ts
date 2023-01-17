@@ -24,7 +24,7 @@ async function loadData() {
                     ?.appendChild(row)
             }
         )
-    } catch (error) {
+    } catch (error: any) {
         const errorSpan = <HTMLSpanElement>document.getElementById('errorSpan')
         if (errorSpan.hidden === true) {
             errorSpan.hidden = false
