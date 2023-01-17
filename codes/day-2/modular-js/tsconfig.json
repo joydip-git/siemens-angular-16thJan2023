@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "rootDir": "source",
+        "outDir": "dist",
+        "target": "ES3",
+        "strict": true,
+        "module": "AMD",
+        "forceConsistentCasingInFileNames": true
+    }
+}
