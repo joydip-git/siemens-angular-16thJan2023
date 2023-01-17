@@ -1,0 +1,14 @@
+{
+  "name": "posts-app",
+  "version": "1.0.0",
+  "description": "simple application",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "joydip",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.2",
+    "bootstrap": "^5.2.3"
+  }
+}
