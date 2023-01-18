@@ -22,5 +22,10 @@ document.creatElement('h2').innerHTML=message
 
 Forms:
 a. Template driven form
-2. Reactive Form
+b. Reactive Form
+
+Directives:
+a. structural directive (*ngX) => decides the structure of he template
+b. attribute directive (ngX) => extends the behavior of an HTML element
+c. component directive => used to render the view (Component)
 		

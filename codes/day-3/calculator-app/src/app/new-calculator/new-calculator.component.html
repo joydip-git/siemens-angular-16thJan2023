@@ -8,21 +8,21 @@
 </ul> -->
 <fieldset>
     <legend>Calculator</legend>
-    <form ngForm #frm="ngForm">
+    <form [formGroup]="calcForm">
         <div>
             <label for="txtFirst">First&nbsp;</label>
-            <input type="text" id="txtFirst" [(ngModel)]="first" name="firstInput">
+            <input type="text" id="txtFirst" name="firstInput" formControlName="first">
         </div>
         <div>
             <label for="txtSecond">Second&nbsp;</label>
-            <input type="text" id="txtSecond" [(ngModel)]="second" name="secondInput" required>
+            <input type="text" id="txtSecond" name="secondInput" formControlName="second">
         </div>
         <div>
             <button type="button" (click)="add()">Add</button>
         </div>
         <div>
             <label for="txtResult">Result&nbsp;</label>
-            <input type="text" id="txtResult" readonly [value]="result">
+            <input type="text" id="txtResult" readonly formControlName="result">
         </div>
     </form>
 </fieldset>
