@@ -19,4 +19,8 @@ passing data
 
 
 document.creatElement('h2').innerHTML=message
+
+Forms:
+a. Template driven form
+2. Reactive Form
 		
