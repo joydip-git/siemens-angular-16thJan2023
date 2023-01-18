@@ -1,0 +1,22 @@
+1. assets:
+	a. component
+	b. directive
+	c. pipe
+	d. service
+	e. module
+
+passing data
+	a. from code to view: data binding
+			i. {{ }}: interpolation
+					code: data=100
+					view: <html-element>{{data}}</html-element>
+			ii. []: property binding
+					code: data=100
+					view: <html-element [attribute-name]="data"></html-element>
+	b. from view to code: event binding
+				view: <HTML-element (event)="method-of-class(data)">
+				code: method-of-class(data){}
+
+
+document.creatElement('h2').innerHTML=message
+		

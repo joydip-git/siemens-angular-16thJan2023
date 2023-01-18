@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'first-ng-app';
+    message = 'Welcome to Angular'
+    toolTip = 'Enter New Message in Text Box'
+    width = 400
+    constructor() {
+        console.log('App component created')
+    }
+    changeMessage(newMessage: string) {
+        this.message = newMessage
+    }
 }
