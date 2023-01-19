@@ -1,23 +1,36 @@
 <h2>Welcome to Angular</h2>
-<table>
-    <thead>
-        <tr>
-            <th>UserId</th>
-            <th>Title</th>
-            <th>Body</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let p of posts">
-            <td>
-                {{p.userId|currency:'INR'}}
-            </td>
-            <td>
-                {{p.title|uppercaseconverter}}
-            </td>
-            <td>
-                {{p.body}}
-            </td>
-        </tr>
-    </tbody>
-</table>
+<ng-template #loadingMessage>
+    <span>Loading...</span>
+</ng-template>
+<ng-template #error>
+    <span>{{errorMessage}}</span>
+</ng-template>
+<ng-template #nodata>
+    <span>No data</span>
+</ng-template>
+<div *ngIf="!loading;else loadingMessage">
+    <div *ngIf="errorMessage==='';else error">
+        <table *ngIf="posts && posts.length>0;else nodata">
+            <thead>
+                <tr>
+                    <th>UserId</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of posts">
+                    <td>
+                        {{p.userId|currency:'INR'}}
+                    </td>
+                    <td>
+                        {{p.title|uppercaseconverter}}
+                    </td>
+                    <td>
+                        {{p.body}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

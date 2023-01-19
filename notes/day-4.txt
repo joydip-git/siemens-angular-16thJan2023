@@ -1,9 +1,77 @@
 Pipe:
 Piping or transformation of data
 
+@Pipe({
+name:'some'
+})
 export class SomePipe{
-
+	transform(dataToBeConverted:any,...args:any[]):any{
+	}
 }
 
 
-data|some:extra
+data|some:extra:extra1:extra2
+
+
+src>app>
+		>ng g m posts
+		posts (folder) <-- feature module folder
+			posts.module.ts (file) <-- module file
+
+			components (folder) 
+				filter (folder)
+					filter.component.ts (file)
+					.....
+				post-list (folder)
+					post-list.component.ts (file)
+					....
+			services (folder)
+				post.service.ts (file)
+			pipes (folder)
+				post-filter.pipe.ts (file)
+		blogs
+			blogs.module.ts
+			components
+			services	
+			pipes
+
+
+event interface method
+X			OnX			ngOnX
+
+
+
+HTTP-GET
+http://127.0.0.1:3003/products - to get all products
+{
+	message:"",
+	data:[{},{},{}]	
+}
+
+HTTP-GET
+http://127.0.0.1:3003/products/1 - to get a single product
+{
+	message:"",
+	data:{}/null
+}
+
+
+HTTP-POST
+http://127.0.0.1:3003/products
+{
+	
+}
+
+HTTP-PUT
+http://127.0.0.1:3003/products/1
+{
+}
+
+
+HTTP-DELETE
+http://127.0.0.1:3003/products/1
+
+
+
+
+
