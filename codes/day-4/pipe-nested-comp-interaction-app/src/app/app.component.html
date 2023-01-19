@@ -1,0 +1,23 @@
+<h2>Welcome to Angular</h2>
+<table>
+    <thead>
+        <tr>
+            <th>UserId</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of posts">
+            <td>
+                {{p.userId|currency:'INR'}}
+            </td>
+            <td>
+                {{p.title|uppercaseconverter}}
+            </td>
+            <td>
+                {{p.body}}
+            </td>
+        </tr>
+    </tbody>
+</table>

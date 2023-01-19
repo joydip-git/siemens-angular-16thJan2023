@@ -1,0 +1,9 @@
+Pipe:
+Piping or transformation of data
+
+export class SomePipe{
+
+}
+
+
+data|some:extra
