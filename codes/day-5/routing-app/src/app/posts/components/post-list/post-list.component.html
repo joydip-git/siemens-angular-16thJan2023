@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <h2>All Posts</h2>
+    <!--
+    <div class="panel panel-body">
+       <div class="row">
+            <app-filter-post [filterCriteria]="filterText" (filterChanged)="updateFilterText($event)">
+            </app-filter-post>
+            <div class="col-md-2">
+                Sort By: &nbsp;
+            </div>
+            <div class="col-md-4">
+                <select title="Select an Option to sort">
+                    <option>--select--</option>
+                    <option>Name</option>
+                    <option>Id</option>
+                    <option>Price</option>
+                    <option>Rating</option>
+                </select>
+            </div>
+        </div> 
+    </div>
+    -->
+    <br>
+    <ng-template #spinner>
+        <span>Loading...</span>
+    </ng-template>
+    <div class="table-responsive" *ngIf="!loading;else spinner">
+        <ng-template #alternate>
+            <span>No records found...</span>
+        </ng-template>
+        <table class="table" *ngIf="postRecords && postRecords.length>0;else alternate">
+            <thead class="theadBackColor">
+                <tr>
+                    <th>Id</th>
+                    <th>UserId</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of (postRecords|postFilter:filterText)">
+                    <td>{{p.id}}</td>
+                    <td>{{p.userId}}</td>
+                    <td>
+                        {{p.title}}
+                    </td>
+                    <td>
+                        {{p.body}}
+                    </td>
+                    <td>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="errorMessage!==''">
+            <span>{{errorMessage}}</span>
+        </div>
+    </div>
+</div>

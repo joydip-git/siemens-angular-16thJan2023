@@ -1,0 +1,29 @@
+<form [formGroup]="postForm" (submit)="submitData()">
+    <div class="mb-4">
+        <label for="txtId">Id:</label>
+        <div class="form-control">
+            <input type="text" id="txtId" formControlName="id">
+        </div>
+    </div>
+    <div class="mb-4">
+        <label for="txtUserId">UserId:</label>
+        <div class="form-control">
+            <input type="text" id="txtUserId" formControlName="userId">
+        </div>
+    </div>
+    <div class="mb-4">
+        <label for="txtTitle">Title:</label>
+        <div class="form-control">
+            <input type="text" id="txtTitle" formControlName="title">
+        </div>
+    </div>
+    <div class="mb-4">
+        <label for="txtBody">Body:</label>
+        <div class="from-control">
+            <input type="textarea" id="txtBody" formControlName="body">
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </div>
+</form>
