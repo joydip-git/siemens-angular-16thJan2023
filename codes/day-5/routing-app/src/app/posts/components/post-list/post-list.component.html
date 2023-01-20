@@ -40,7 +40,11 @@
             </thead>
             <tbody>
                 <tr *ngFor="let p of (postRecords|postFilter:filterText)">
-                    <td>{{p.id}}</td>
+                    <td>
+                        <a [routerLink]="['/posts/view',p.id]">
+                            {{p.id}}
+                        </a>
+                    </td>
                     <td>{{p.userId}}</td>
                     <td>
                         {{p.title}}

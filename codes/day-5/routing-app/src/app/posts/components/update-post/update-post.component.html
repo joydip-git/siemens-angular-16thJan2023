@@ -1,1 +1,46 @@
-<p>update-post works!</p>
+<ng-template #loadingTemplate>
+    <span>Loading...</span>
+</ng-template>
+<ng-template #errorTemplate>
+    <span>{{errorMessage}}</span>
+</ng-template>
+<ng-template #noDataTemplate>
+    <span>No record found</span>
+</ng-template>
+<div *ngIf="!loading; else loadingTemplate">
+    <div *ngIf="errorMessage==='';else errorTemplate">
+        <div *ngIf="post && postForm; else noDataTemplate">
+            <form [formGroup]="postForm" (submit)="updateData()">
+                <div class="mb-4">
+                    <label for="txtId">Id:</label>
+                    <div class="form-control">
+                        <input type="text" id="txtId" formControlName="id" readonly class="text-muted">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="txtUserId">UserId:</label>
+                    <div class="form-control">
+                        <input type="text" id="txtUserId" formControlName="userId">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="txtTitle">Title:</label>
+                    <div class="form-control">
+                        <!-- <input type="text" id="txtTitle" formControlName="title" style="width: 500px;"> -->
+                        <textarea formControlName="title" id="txtTitle" cols="30" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="txtBody">Body:</label>
+                    <div class="from-control">
+
+                        <textarea formControlName="body" id="txtBody" id="txtTitle" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

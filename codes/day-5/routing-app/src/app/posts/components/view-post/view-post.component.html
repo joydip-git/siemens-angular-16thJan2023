@@ -1,1 +1,23 @@
-<p>view-post works!</p>
+<ng-template #loadingTemplate>
+    <span>Loading...</span>
+</ng-template>
+<ng-template #errorTemplate>
+    <span>{{errorMessage}}</span>
+</ng-template>
+<ng-template #noDataTemplate>
+    <span>No record found</span>
+</ng-template>
+<div *ngIf="!loading; else loadingTemplate">
+    <div *ngIf="errorMessage==='';else errorTemplate">
+        <div *ngIf="post; else noDataTemplate">
+            <p>Details of postid#{{post.id}}</p>
+            <div style="float:right">
+                <input type="button" value="Edit" class="btn btn-primary" (click)="gotoEdit()">
+            </div>
+            <div>
+                <!-- <input type="textarea" [value]="post.title" readonly> -->
+                {{post.title}}
+            </div>
+        </div>
+    </div>
+</div>
