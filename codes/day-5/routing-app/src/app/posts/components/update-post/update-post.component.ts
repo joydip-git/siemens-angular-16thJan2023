@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Post } from '../../models/post';
 import { PostService } from '../../services/post.service';
 
@@ -9,11 +10,13 @@ import { PostService } from '../../services/post.service';
   templateUrl: './update-post.component.html',
   styleUrls: ['./update-post.component.css']
 })
-export class UpdatePostComponent implements OnInit {
+export class UpdatePostComponent implements OnInit, OnDestroy {
   post?: Post;
   errorMessage = ''
   loading = true
   postForm?: FormGroup;
+  fetchSubscription?: Subscription;
+  updateSubscription?: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,17 +24,11 @@ export class UpdatePostComponent implements OnInit {
     private builder: FormBuilder,
     private router: Router
   ) {
-    // this.postForm = this.builder.group({
-    //   id: [0],
-    //   userId: [0],
-    //   title: [''],
-    //   body: ['']
-    // })
   }
   updateData() {
     const newPost = <Post>this.postForm?.value
     if (confirm('Would you like to update?')) {
-      this.svc.updatePost(newPost).subscribe({
+      this.fetchSubscription = this.svc.updatePost(newPost).subscribe({
         next: (data) => {
           if (data && data !== null) {
             alert('product added successfully')
@@ -43,8 +40,6 @@ export class UpdatePostComponent implements OnInit {
           this.errorMessage = err.message
         },
         complete: () => {
-          // this.id?.setValue(this.post?.id)
-          // this.id?.setValue(this.post?.id)
           this.router.navigate(['/posts'])
         }
       })
@@ -64,7 +59,7 @@ export class UpdatePostComponent implements OnInit {
   }
   ngOnInit(): void {
     const id = +(this.route.snapshot.params["id"])
-    this.svc.getPostById(id)
+    this.updateSubscription = this.svc.getPostById(id)
       .subscribe({
         next: (data) => {
           this.post = data
@@ -77,8 +72,6 @@ export class UpdatePostComponent implements OnInit {
           this.errorMessage = err.message
         },
         complete: () => {
-          // this.id?.setValue(this.post?.id)
-          // this.id?.setValue(this.post?.id)
           this.postForm = this.builder.group({
             id: [this.post?.id],
             userId: [this.post?.userId],
@@ -87,5 +80,9 @@ export class UpdatePostComponent implements OnInit {
           })
         }
       })
+  }
+  ngOnDestroy(): void {
+    this.fetchSubscription?.unsubscribe()
+    this.updateSubscription?.unsubscribe()
   }
 }

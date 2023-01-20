@@ -9,24 +9,30 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterPostComponent } from './components/filter-post/filter-post.component';
 import { PostFilterPipe } from './pipes/post-filter.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
 const postRoutes: Routes = [
   {
     path: 'posts',
-    component: PostListComponent
-  },
-  {
-    path: 'posts/add',
-    component: AddPostComponent
-  },
-  {
-    path: 'posts/update/:id',
-    component: UpdatePostComponent
-  },
-  {
-    path: 'posts/view/:id',
-    component: ViewPostComponent
+    canActivate: [AuthGuard],
+    children: [{
+      path: '',
+      component: PostListComponent
+    },
+    {
+      path: 'add',
+      component: AddPostComponent
+    },
+    {
+      path: 'update/:id',
+      component: UpdatePostComponent
+    },
+    {
+      path: 'view/:id',
+      component: ViewPostComponent
+    }]
   }
+
 ]
 
 @NgModule({

@@ -1,0 +1,17 @@
+<form *ngIf="loginForm" [formGroup]="loginForm" (submit)="login()">
+    <div class="mb-4">
+        <label for="txtUserId">UserName:</label>
+        <div class="form-control">
+            <input type="text" id="txtUserId" formControlName="userid">
+        </div>
+    </div>
+    <div class="mb-4">
+        <label for="txtPassword">UserId:</label>
+        <div class="form-control">
+            <input type="text" id="txtPassword" formControlName="password">
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </div>
+</form>
