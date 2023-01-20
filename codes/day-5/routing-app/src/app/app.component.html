@@ -1,0 +1,21 @@
+<form [formGroup]="postForm" (submit)="submitData()">
+  <div>
+    <label for="txtId">Id:</label>
+    <input type="text" id="txtId" formControlName="id">
+  </div>
+  <div>
+    <label for="txtUserId">UserId:</label>
+    <input type="text" id="txtUserId" formControlName="userId">
+  </div>
+  <div>
+    <label for="txtTitle">Title:</label>
+    <input type="text" id="txtTitle" formControlName="title">
+  </div>
+  <div>
+    <label for="txtBody">Body:</label>
+    <input type="text" id="txtBody" formControlName="body">
+  </div>
+  <div>
+    <input type="submit" value="Submit">
+  </div>
+</form>
